@@ -13,8 +13,9 @@ module.exports.home = function(req, res){
     //     });
     // });
 
-    // populate the user of each post
-    Post.find({}).populate('user').exec(function(err, posts){
+    // populate the user of each post ie fill all data of user not only ObjectID
+     Post.find({}).populate('user').exec(function(err, posts){
+        // Post.find({}, function(err, posts){
         return res.render('home', {
             title: "MernSocial | Home",
             posts:  posts

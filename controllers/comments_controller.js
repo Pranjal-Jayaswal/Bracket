@@ -12,9 +12,10 @@ module.exports.create = function(req, res){
             }, function(err, comment){
                 // handle error
 
+                // now in post schema`s comment updated...(rendered alag tha ...now updating the comment in post collection in mongo db)
                 post.comments.push(comment);
+                // changes made so now save
                 post.save();
-
                 res.redirect('/');
             });
         }

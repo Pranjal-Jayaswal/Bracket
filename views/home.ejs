@@ -1,5 +1,5 @@
 <h1>
-    MernSocial / <%= title %>
+     <%= title %>
 </h1>
 
 <section id="feed-posts">
@@ -13,7 +13,6 @@
             <div id="posts-list-container">
                 <ul>
                     <% for(post of posts){ %>
-
                         <li>
                             <p>
                                 <%= post.content %>
@@ -26,6 +25,7 @@
                                 <% if (locals.user){ %>
                                     <form action="/comments/create" method="POST">
                                         <input type="text" name="content" placeholder="Type Here to add comment...">
+                                        <!-- post from for loop -->
                                         <input type="hidden" name="post1112" value="<%= post._id %>">
                                         <input type="submit" value="Add Comment">
                                     </form>
