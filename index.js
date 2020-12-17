@@ -16,7 +16,7 @@ app.use(
         src:'./assets/scss',
         dest:'./assets/cssFile',
         debug:true,
-        outputStyle:'expanded',
+        outputStyle:'extended',
         prefix:'/cssFile'
     })
 )
