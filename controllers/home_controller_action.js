@@ -1,6 +1,7 @@
-
+const user = require('../models/user');
 
 const Post = require('../models/post');
+const User = require('../models/user');
 
 module.exports.home = function (req, res) {
     // console.log(req.cookies);
@@ -22,11 +23,14 @@ module.exports.home = function (req, res) {
                 path: 'user'
             }
         }).exec(function (err, posts) {
-            // Post.find({}, function(err, posts){
-            return res.render('home', {
-                title: "MernSocial | Home",
-                posts: posts
-            });
+            User.find({},function(err,userss){
+                return res.render('home', {
+                    title: "MernSocial | Home",
+                    posts: posts,
+                    allUser:userss
+                });
+            })
+           
         })
 
 }

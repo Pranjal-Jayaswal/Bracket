@@ -2,9 +2,13 @@ const User = require('../models/user');
 
 
 module.exports.profilee = function (req, res) {
-     return res.render('user_profile', {
-          title: 'User Profile'
-      });
+     User.findById(req.params.id,function(err,link){
+          return res.render('user_profile', {
+               title: 'User Profile',
+               profile_user:link
+           });
+     })
+
      // if (req.cookies.user_id){
      //      User.findById(req.cookies.user_id, function(err, user){
      //          if (user){

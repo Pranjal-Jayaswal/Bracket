@@ -19,3 +19,13 @@
                 </ul>
             </div>
 </section>
+
+<section>
+    <% for(u of allUser) {%>
+      <p>
+          <a href="/users/profile/<%= u.id%>"><%= u.name%></a>
+      </p>
+       
+        
+        <%}%>
+</section>
