@@ -25,6 +25,20 @@ module.exports.profilee = function (req, res) {
 
      //  }
 }
+module.exports.update = function (req, res) {
+     console.log(req.user.id);
+     console.log(req.params.id);
+
+     if (req.user.id==req.params.id) {
+          User.findByIdAndUpdate(req.user.id, {name:req.body.name,email:req.body.email},function(err,user){
+               return res.redirect('back');
+          })
+     }else{
+          return res.status(401).send('bhaag yahan se');
+     }
+}
+
+
 
 module.exports.signUp = function (req, res) {
      if (req.isAuthenticated()){
