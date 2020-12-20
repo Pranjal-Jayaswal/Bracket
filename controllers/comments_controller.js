@@ -22,6 +22,8 @@ module.exports.create = function(req, res){
 
     });
 }
+
+// delete from 2 collection ie comment document and from post documents private comments array 
 module.exports.destroy = function(req, res){
     Comment.findById(req.params.id, function(err, comment){
         if (comment.user == req.user.id){
