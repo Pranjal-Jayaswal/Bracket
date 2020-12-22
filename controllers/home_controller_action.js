@@ -15,6 +15,7 @@ module.exports.home = async function (req, res) {
                     path: 'user'
                 }
             });
+            // async so server wait let it finidsh
         let userss = await User.find({});
         return res.render('home', {
             title: "MernSocial | Home",
