@@ -30,7 +30,7 @@
         <%- include('_footer');%>
             <%- script%>
                 <script>
-    <% if (flash.success && flash.success.length > 0) { %>
+                     <% if (flash.success && flash.success.length > 0) { %>
                         new Noty({
                             theme: 'relax',
                             type: 'success',
@@ -40,8 +40,8 @@
                             timeout: 1500
                         }).show();
 
-        <% } %>
-        <% if (flash.error && flash.error.length > 0) { %>
+                          <% } %>
+                              <% if (flash.error && flash.error.length > 0) { %>
                         new Noty({
                             theme: 'relax',
                             type: 'error',
@@ -52,7 +52,7 @@
 
                         }).show();
 
-        <% } %>
+                        <% } %>
 
 
                 </script>
