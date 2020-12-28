@@ -28,6 +28,12 @@ app.use(cookieParser());
 app.use(express.static('./assets'));
 
 app.use(expressLayouts);
+
+// browser unable to fetch this url
+// http://localhost:8000/uploads/users/avatars/avatar-1609117192670
+
+app.use('/uploads',express.static(__dirname+'/uploads'))
+
 // extract style and scripts from sub pages into the layout
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
