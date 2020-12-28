@@ -6,16 +6,8 @@ const User = require('../models/user');
 
 module.exports.home = async function (req, res) {
     try {
-        let posts = await Post.find({})
-        .sort('-createdAt')
-            .populate('user')
-            .populate({
-                path: 'comments',
-                populate: {
-                    path: 'user'
-                }
-            });
-            // async so server wait let it finidsh
+
+        // async so server wait let it finidsh
         let userss = await User.find({});
         return res.render('home', {
             title: "MernSocial | Home",
