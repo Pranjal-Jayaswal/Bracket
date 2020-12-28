@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    // database dont store the file it just store sthe path of the file
     avatar: {
         type: String,
     }
