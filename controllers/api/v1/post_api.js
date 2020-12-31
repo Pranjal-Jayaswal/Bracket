@@ -28,26 +28,26 @@ module.exports.destroy = async function (req, res) {
         );
         // .id means converting the object id into string
 
-        // if (post.user == req.user.id) {
-        post.remove();
+        if (post.user == req.user.id) {
+            post.remove();
 
 
 
 
-        await Comment.deleteMany({ post: req.params.id });
+            await Comment.deleteMany({ post: req.params.id });
 
 
 
-        return res.json(500, {
+            return res.json(500, {
 
-            message: "post and associated comment deleted"
-        });;
+                message: "post and associated comment deleted"
+            });
 
-        // } else {
-        //     req.flash('error', 'post can`t be deleted by you');
+        } else {
+            req.flash('error', 'post can`t be deleted by you');
 
-        //     return res.redirect('back');
-        // }
+            return res.redirect('back');
+        }
     } catch (error) {
         return res.json(500, {
             message: "internal server error"
