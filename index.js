@@ -15,7 +15,7 @@ const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const flashcustomMware = require('./config/middleware');
 
-
+// directing to use session cookie 
 app.use(
     sassMiddleware({
         src:'./assets/scss',
@@ -25,10 +25,16 @@ app.use(
         prefix:'/cssFile'
     })
 )
+// parsing form data and url encoding done 
 app.use(express.urlencoded());
+
+// cookieParser passes/verifies or parses data into cookie 
 app.use(cookieParser());
+
+// directing to use asets from this file 
 app.use(express.static('./assets'));
 
+// directing that this app will use layout 
 app.use(expressLayouts);
 
 // browser unable to fetch this url
