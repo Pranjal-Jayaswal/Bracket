@@ -4,7 +4,7 @@ const passport = require('passport');
 const usersConrtollerr = require('../controllers/user_controller');
 
 
-router.get('/profile/:id',passport.checkAuthentication, usersConrtollerr.profilee);
+router.get('/profile/:id', passport.checkAuthentication, usersConrtollerr.profilee);
 router.post('/update/:id', usersConrtollerr.update);
 
 router.get('/signUp', usersConrtollerr.signUp);
@@ -15,9 +15,11 @@ router.get('/sign-out', usersConrtollerr.destroySession);
 // use passport as a middleware to authenticate
 router.post('/create-Session', passport.authenticate(
     'local',
-    {failureRedirect: '/users/sign-in'},
+    { failureRedirect: '/users/sign-in' },
 ), usersConrtollerr.createSession);
 
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/users/signIn' }), usersConrtollerr.createSession);
 
 
 // router.get('/signOut', usersConrtollerr.signOut);
