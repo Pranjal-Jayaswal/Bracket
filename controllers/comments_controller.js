@@ -1,26 +1,44 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
+const commentsMailer = require('../mailer/comments_mailer');
 
 module.exports.create = function(req, res){
-    Post.findById(req.body.post1112, function(err, post){
+    try{
+        let post = await Post.findById(req.body.post);
 
         if (post){
-            Comment.create({
+            let comment = await Comment.create({
                 content: req.body.content,
-                post: req.body.post1112,
+                post: req.body.post,
                 user: req.user._id
-            }, function(err, comment){
-                // handle error
-
-                // now in post schema`s comment updated...(rendered alag tha ...now updating the comment in post collection in mongo db)
-                post.comments.push(comment);
-                // changes made so now save
-                post.save();
-                res.redirect('/');
             });
-        }
 
-    });
+            post.comments.push(comment);
+            post.save();
+            
+            comment = await comment.populate('user', 'name email').execPopulate();
+            commentsMailer.newComment(comment);
+            if (req.xhr){
+                
+    
+                return res.status(200).json({
+                    data: {
+                        comment: comment
+                    },
+                    message: "Post created!"
+                });
+            }
+
+
+            req.flash('success', 'Comment published!');
+
+            res.redirect('/');
+        }
+    }catch(err){
+        req.flash('error', err);
+        return;
+    }
+    
 }
 
 // delete from 2 collection ie comment document and from post documents private comments array 
