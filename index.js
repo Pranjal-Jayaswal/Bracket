@@ -52,6 +52,10 @@ app.set('layout extractScripts', true);
 app.set('view engine','ejs');
 app.set('views','./views');
 
+
+// express session encrypts user id and put it in cookie
+
+
 app.use(session({
     name: 'mernSocial',
     // TODO change the secret before deployment in production mode

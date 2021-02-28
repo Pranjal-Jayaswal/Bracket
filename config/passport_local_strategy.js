@@ -24,13 +24,14 @@ passport.use(new LocalStrategy({
 )
 
 
+// similar to putting usr id in cookie
 // serializing the user to decide which key is to be kept in the cookies
 passport.serializeUser(function (user, done) {
     done(null, user.id);
 });
 
 
-
+// when cookie reaches DB extracting user id to perform serach process in DB
 // deserializing the user from the key in the cookies
 passport.deserializeUser(function (id, done) {
     User.findById(id, function (err, user) {
