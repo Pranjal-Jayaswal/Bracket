@@ -16,13 +16,15 @@ const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const flashcustomMware = require('./config/middleware');
 
+
+
 // directing to use session cookie 
 app.use(
     sassMiddleware({
         src:'./assets/scss',
         dest:'./assets/cssFile',
         debug:true,
-        outputStyle:'extended',
+        outputStyle:'expanded',
         prefix:'/cssFile'
     })
 )

@@ -1,8 +1,7 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
-const commentsMailer = require('../mailer/comments_mailer');
 
-module.exports.create = function(req, res){
+module.exports.create = async function(req, res){
     try{
         let post = await Post.findById(req.body.post);
 
