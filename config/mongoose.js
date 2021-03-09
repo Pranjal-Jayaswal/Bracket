@@ -1,6 +1,7 @@
 const mongoose= require ('mongoose');
 //providing connection to db,,,, name of db used,,,runnnig on same system,,, name of the db
-mongoose.connect('mongodb://localhost/mernSocial');
+const env = require('./environment');
+mongoose.connect(`mongodb://localhost/${env.db}`);
 
 const db=mongoose.connection;
 
