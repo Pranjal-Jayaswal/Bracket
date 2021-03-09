@@ -4,7 +4,7 @@ class ChatEngine{
 
         this.chatBox = $(`#${chatBoxId}`);
         this.userEmail = userEmail;
-        this.socket = io.connect('http://localhost:5000', { transports: ['websocket', 'polling', 'flashsocket'] });
+        this.socket = io.connect('http://localhost:5000');
 
         if (this.userEmail){
             this.connectionHandler();
@@ -16,7 +16,7 @@ class ChatEngine{
 
         this.socket.on("connect", function(){
                     
-            socket.send("heloooo");
+            
             console.log('connection established using sockets...!');
 
 
