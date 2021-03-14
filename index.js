@@ -4,6 +4,7 @@ const env = require('./config/environment');
 const app=express();
 const port =8000;
 const db=require('./config/mongoose');
+// By default, res.render() will render the view and pass the string of html as a body variable to a file named layout in the views folder
 const expressLayouts = require('express-ejs-layouts');
 // used for session cookie
 const session = require('express-session');
