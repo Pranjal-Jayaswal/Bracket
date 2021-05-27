@@ -49,7 +49,7 @@ use a web browser with url localhost:8000 to run the app.(as port used is 8000)
 
 
 
-Open http://localhost:3000 with your browser to see the result.
+Open http://localhost:8000 with your browser to see the result.
 
 
 Feel free to use and contribute! :)
