@@ -1,13 +1,15 @@
-# MernSocial
-A Social Media Application
+<h1 align="center">
+MernSocial
+</h1>
+A complete scalable social media website currently in process to be deplyed on AWS. 
 
-*Built using NodeJS,ExpressJS and MongoDB .
+***Built using NodeJS,ExpressJS and MongoDB .***
+
+---
 
 
 
-A completely scalable social media website currently in developement.
-
-#Directory Structure
+## Directory Structure
 
 This code follows MVC pattern to make it more scalable : /routes - containes all the routes.
 
@@ -21,25 +23,31 @@ This code follows MVC pattern to make it more scalable : /routes - containes all
 
 /views - used by ejs(templating engine) for server side rendering.
 
-Feel free to use and contribute! :)
+---
+## Middlewares Used
+
+connect-flash , crypto , express-session ,
+mongoose , multer, passport , passport-google-oauth , passport-jwt ,
+socket.io etc.
 
 
+---
 
 
+***Installation***
 
-Installation
-You just need to install dependencies:
+> You just need to install dependencies:
+> "npm install"
+> and then run
+> "npm start" command on your console.
 
-npm install
-And start the program
-
-npm start
 
 
 
 Open http://localhost:3000 with your browser to see the result.
 
 
+Feel free to use and contribute! :)
 
 
 
