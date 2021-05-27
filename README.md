@@ -41,6 +41,11 @@ socket.io etc.
 > and then run
 > "npm start" command on your console.
 
+## How to use:
+
+Setup NodeJS and MongoDB on your system.
+Fork/Clone the repo and after opening the project , run using "npm start" command on your editor(eg. VS Code)(nodemon used.)
+use a web browser with url localhost:8000 to run the app.(as port used is 8000)
 
 
 
